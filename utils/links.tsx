@@ -33,3 +33,5 @@ const links: NavLink[] = [
     icon: <Mail />,
   },
 ];
+
+export default links;
