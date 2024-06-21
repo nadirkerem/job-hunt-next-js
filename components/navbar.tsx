@@ -1,7 +1,7 @@
 import { UserButton } from "@clerk/nextjs";
 
 import LinksDropdown from "./links-dropdown";
-import Theme from "./theme";
+import Theme from "./theme-toggle";
 
 export default function Navbar() {
   return (

@@ -15,7 +15,7 @@ export default function LinksDropdown() {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild className="lg:hidden">
-        <Button variant="outline" size="icon">
+        <Button variant="link" size="icon">
           <Menu />
           <span className="sr-only">Toggle Links</span>
         </Button>
@@ -27,7 +27,10 @@ export default function LinksDropdown() {
       >
         {links.map((link) => (
           <DropdownMenuItem key={link.href}>
-            <Link href={link.href} className="flex items-center gap-x-2">
+            <Link
+              href={link.href}
+              className="flex items-center gap-x-2 text-primary"
+            >
               {link.icon} {link.label}
             </Link>
           </DropdownMenuItem>
