@@ -2,15 +2,15 @@ import Image from "next/image";
 import Link from "next/link";
 
 import LandingImage from "@/assets/job_hunt.svg";
+
 import { Button } from "@/components/ui/button";
+import Logo from "@/components/logo";
 
 export default function Home() {
   return (
     <main>
       <header className="mx-auto max-w-6xl px-4 pt-4 sm:px-8">
-        <h1 className="text-center text-3xl font-bold text-blue-700 sm:text-4xl">
-          JobHunt
-        </h1>
+        <Logo />
       </header>
       <section className="mx-auto -mt-10 grid h-screen max-w-6xl items-center px-10 lg:grid-cols-[1fr,400px]">
         <div>

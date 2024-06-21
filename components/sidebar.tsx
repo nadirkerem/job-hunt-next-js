@@ -5,14 +5,17 @@ import { usePathname } from "next/navigation";
 import { UserButton } from "@clerk/nextjs";
 
 import links from "@/utils/links";
+
 import { Button } from "@/components/ui/button";
+import Logo from "@/components/logo";
 
 export default function Sidebar() {
   const pathname = usePathname();
 
   return (
     <aside className="flex h-full flex-col bg-muted px-8 py-4">
-      <div className="mt-20 flex flex-grow flex-col gap-y-6">
+      <Logo />
+      <div className="mt-10 flex flex-grow flex-col gap-y-6">
         {links.map((link) => (
           <Button
             asChild
