@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { UserButton } from "@clerk/nextjs";
 
 import links from "@/utils/links";
 import { Button } from "@/components/ui/button";
@@ -10,8 +11,8 @@ export default function Sidebar() {
   const pathname = usePathname();
 
   return (
-    <aside className="h-full bg-muted px-8 py-4">
-      <div className="mt-20 flex flex-col gap-y-6">
+    <aside className="flex h-full flex-col bg-muted px-8 py-4">
+      <div className="mt-20 flex flex-grow flex-col gap-y-6">
         {links.map((link) => (
           <Button
             asChild
@@ -24,6 +25,7 @@ export default function Sidebar() {
           </Button>
         ))}
       </div>
+      <div className="mb-5 mt-auto self-center">{<UserButton />}</div>
     </aside>
   );
 }
