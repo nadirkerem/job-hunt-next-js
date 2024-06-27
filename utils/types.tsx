@@ -25,17 +25,36 @@ export enum JobMode {
 }
 
 export const createAndEditJobSchema = z.object({
-  position: z.string().min(2, {
-    message: "Position must be at least 2 characters.",
+  position: z
+    .string()
+    .min(2, {
+      message: "Position must be at least 2 characters.",
+    })
+    .max(100, {
+      message: "Position must be at most 100 characters.",
+    }),
+  company: z
+    .string()
+    .min(2, {
+      message: "Company must be at least 2 characters.",
+    })
+    .max(100, {
+      message: "Company must be at most 100 characters.",
+    }),
+  location: z
+    .string()
+    .min(2, {
+      message: "Location must be at least 2 characters.",
+    })
+    .max(100, {
+      message: "Location must be at most 100 characters.",
+    }),
+  status: z.nativeEnum(JobStatus, {
+    errorMap: () => ({ message: "Invalid status value." }),
   }),
-  company: z.string().min(2, {
-    message: "Company must be at least 2 characters.",
+  mode: z.nativeEnum(JobMode, {
+    errorMap: () => ({ message: "Invalid mode value." }),
   }),
-  location: z.string().min(2, {
-    message: "Location must be at least 2 characters.",
-  }),
-  status: z.nativeEnum(JobStatus),
-  mode: z.nativeEnum(JobMode),
 });
 
-export type createAndEditJobType = z.infer<typeof createAndEditJobSchema>;
+export type CreateAndEditJobType = z.infer<typeof createAndEditJobSchema>;
