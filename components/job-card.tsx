@@ -43,7 +43,7 @@ export default function JobCard({ job }: { job: JobType }) {
         <Button asChild size="sm">
           <Link href={`/jobs/${job.id}`}>Edit</Link>
         </Button>
-        <DeleteJobButton />
+        <DeleteJobButton id={job.id} />
       </CardFooter>
     </Card>
   );
