@@ -1,8 +1,27 @@
-import { getAnalyticsAction } from "@/utils/actions";
+import ChartsContainer from "@/components/charts-container";
+import AnalyticsContainer from "@/components/analytics-container";
+import { getChartsDataAction, getAnalyticsAction } from "@/utils/actions";
+import {
+  dehydrate,
+  HydrationBoundary,
+  QueryClient,
+} from "@tanstack/react-query";
 
 export default async function AnalyticsPage() {
-  const analytics = await getAnalyticsAction();
-  console.log(analytics);
+  const queryClient = new QueryClient();
 
-  return <div>AnalyticsPage</div>;
+  await queryClient.prefetchQuery({
+    queryKey: ["analytics"],
+    queryFn: () => getAnalyticsAction(),
+  });
+  await queryClient.prefetchQuery({
+    queryKey: ["charts"],
+    queryFn: () => getChartsDataAction(),
+  });
+  return (
+    <HydrationBoundary state={dehydrate(queryClient)}>
+      <AnalyticsContainer />
+      {/* <ChartsContainer /> */}
+    </HydrationBoundary>
+  );
 }

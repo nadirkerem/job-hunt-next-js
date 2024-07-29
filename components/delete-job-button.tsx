@@ -22,7 +22,7 @@ export default function DeleteJobButton({ id }: { id: string }) {
         return;
       }
       queryClient.invalidateQueries({ queryKey: ["jobs"] });
-      queryClient.invalidateQueries({ queryKey: ["stats"] });
+      queryClient.invalidateQueries({ queryKey: ["analytics"] });
       queryClient.invalidateQueries({ queryKey: ["charts"] });
 
       toast({ description: "job removed" });
